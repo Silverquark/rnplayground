@@ -1,3 +1,5 @@
+/// <reference types="nativewind/types" />
+
 /**
  * Learn more about using TypeScript with React Navigation:
  * https://reactnavigation.org/docs/typescript/
@@ -14,7 +16,9 @@ declare global {
 }
 
 export type RootStackParamList = {
-  Root: NavigatorScreenParams<RootTabParamList> | undefined;
+  // Root: NavigatorScreenParams<RootTabParamList> | undefined;
+  Root: undefined;
+  Stopwatch: undefined;
   Modal: undefined;
   NotFound: undefined;
 };
@@ -24,12 +28,12 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> = Nati
   Screen
 >;
 
-export type RootTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
-};
+// export type RootTabParamList = {
+//   TabOne: undefined;
+//   TabTwo: undefined;
+// };
 
-export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<
-  BottomTabScreenProps<RootTabParamList, Screen>,
-  NativeStackScreenProps<RootStackParamList>
->;
+// export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<
+//   BottomTabScreenProps<RootTabParamList, Screen>,
+//   NativeStackScreenProps<RootStackParamList>
+// >;
