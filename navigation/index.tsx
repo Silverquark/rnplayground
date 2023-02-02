@@ -12,13 +12,13 @@ import {
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
-import { ColorSchemeName, Pressable } from "react-native";
+import { ColorSchemeName } from "react-native";
 
-import Colors from "../constants/Colors";
-import useColorScheme from "../hooks/useColorScheme";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import RootScreen from "../screens/RootScreen";
+import { PokemonCardScreen } from "../screens/tests/pokemon/PokemonCard";
+import { PokemonCardSensorScreen } from "../screens/tests/pokemon/PokemonCardSensorScreen";
 import StopwatchScreen from "../screens/tests/Stopwatch/StopwatchScreen";
 import { RootStackParamList } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
@@ -53,6 +53,11 @@ function RootNavigator() {
         options={{ title: "Playground" }}
       />
       <Stack.Screen name="Stopwatch" component={StopwatchScreen} />
+      <Stack.Screen name="PokemonCard" component={PokemonCardScreen} />
+      <Stack.Screen
+        name="PokemonCardSensor"
+        component={PokemonCardSensorScreen}
+      />
       <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}

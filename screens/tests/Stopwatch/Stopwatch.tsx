@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, TouchableOpacity, Pressable } from "react-native";
+import { View, Text, Pressable, useColorScheme } from "react-native";
 import Animated, {
   useAnimatedStyle,
   useDerivedValue,
@@ -8,6 +8,7 @@ import Animated, {
 import { useInterval } from "./useInterval";
 
 export default function Stopwatch({ startTime }: { startTime: Date }) {
+  const colorScheme = useColorScheme();
   const [elapsedTime, setElapsedTime] = useState(0);
   const [stops, setStops] = useState<Date[]>([]);
   const [starts, setStarts] = useState<Date[]>([startTime]);
@@ -35,7 +36,7 @@ export default function Stopwatch({ startTime }: { startTime: Date }) {
     }
 
     setElapsedTime(elapsed);
-  }, 10);
+  }, 100);
 
   const animRotation = useDerivedValue(() => {
     const a = smooth ? elapsedTime / 1000 : elapsedSeconds;
@@ -73,7 +74,8 @@ export default function Stopwatch({ startTime }: { startTime: Date }) {
                   height: 2,
                   width: 8 + add,
                   position: "absolute",
-                  backgroundColor: "#000000",
+                  backgroundColor:
+                    colorScheme === "dark" ? "#ffffff" : "#000000",
                   transform: [
                     {
                       rotateZ: `${i * 6}deg`,
@@ -98,7 +100,7 @@ export default function Stopwatch({ startTime }: { startTime: Date }) {
           ]}
         />
 
-        <Text className="absolute text-2xl">
+        <Text className="text-black dark:text-white absolute text-4çxl">
           {convertSecondsToMinutesAndSeconds(elapsedSeconds)}
         </Text>
       </View>
@@ -110,11 +112,13 @@ export default function Stopwatch({ startTime }: { startTime: Date }) {
       >
         {({ pressed }) => (
           <View
-            className={`border rounded bottom-4 p-4 
+            className={`border border-black dark:border-white rounded bottom-4 p-4 
 		  ${pressed ? "bg-gray-300" : "bg-transparent"}
 		`}
           >
-            <Text>{paused ? "Resume" : "Pause"}</Text>
+            <Text className="text-black dark:text-white">
+              {paused ? "Resume" : "Pause"}
+            </Text>
           </View>
         )}
       </Pressable>
@@ -122,11 +126,13 @@ export default function Stopwatch({ startTime }: { startTime: Date }) {
       <Pressable onPress={() => setSmooth(!smooth)}>
         {({ pressed }) => (
           <View
-            className={`border rounded bottom-4 p-4 mt-4
+            className={`border border-black dark:border-white rounded bottom-4 p-4 mt-4
 		  ${pressed ? "bg-gray-300" : "bg-transparent"}
 		`}
           >
-            <Text>{smooth ? "not smooth" : "Smooth"}</Text>
+            <Text className="text-black dark:text-white">
+              {smooth ? "not smooth" : "Smooth"}
+            </Text>
           </View>
         )}
       </Pressable>
