@@ -23,6 +23,7 @@ export type RootStackParamList = {
   Root: undefined;
   PokemonCard: undefined;
   PokemonCardSensor: undefined;
+  Math: undefined;
   Stopwatch: undefined;
   Modal: undefined;
   NotFound: undefined;

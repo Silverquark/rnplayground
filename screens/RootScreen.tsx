@@ -26,6 +26,10 @@ export default function RootScreen({
       screen: "PokemonCardSensor",
       title: "Pokemon Sensor",
     },
+    {
+      screen: "Math",
+      title: "Math",
+    },
   ];
 
   return (

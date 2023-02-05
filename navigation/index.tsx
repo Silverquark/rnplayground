@@ -17,6 +17,7 @@ import { ColorSchemeName } from "react-native";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import RootScreen from "../screens/RootScreen";
+import { MathScreen } from "../screens/tests/math/MathScreen";
 import { PokemonCardScreen } from "../screens/tests/pokemon/PokemonCard";
 import { PokemonCardSensorScreen } from "../screens/tests/pokemon/PokemonCardSensorScreen";
 import StopwatchScreen from "../screens/tests/Stopwatch/StopwatchScreen";
@@ -58,6 +59,8 @@ function RootNavigator() {
         name="PokemonCardSensor"
         component={PokemonCardSensorScreen}
       />
+      <Stack.Screen name="Math" component={MathScreen} />
+
       <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}
